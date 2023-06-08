@@ -10,9 +10,8 @@ public class Demo3Application {
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(Demo3Application.class, args);
-        Outfit outfit = context.getBean(Outfit.class);
-        System.out.println("Intance" + outfit);
-        outfit.wear();
+        // Khi chạy xong, lúc này context sẽ chứa các Bean có đánh
+        // dấu @Component.
         Girl girl = context.getBean(Girl.class);
         System.out.println("Girl Intance : " + girl);
         System.out.println("Girl Outfit: " + girl.outfit);

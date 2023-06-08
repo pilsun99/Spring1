@@ -3,8 +3,7 @@ package com.example.demo;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype")
+@Component("Bikini")
 
 public class Bikini implements Outfit{
     @Override
