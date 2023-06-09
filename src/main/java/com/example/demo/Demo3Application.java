@@ -9,16 +9,13 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Demo3Application {
 
     public static void main(String[] args) {
-        // ApplicationContext chính là container, chứa toàn bộ các Bean
-        System.out.println(" > Trước khi Ioc Container được khởi tạo ");
         ApplicationContext context = SpringApplication.run(Demo3Application.class, args);
-        System.out.println("Sau khi Ioc Container được khởi tạo");
-        // Khi chạy xong, lúc này context sẽ chứa các Bean có đánh
-        // dấu @Component.
-        Girl girl = context.getBean(Girl.class);
-        System.out.println(" > Truớc khi Ioc Container destroy Girl");
-        ((ConfigurableApplicationContext) context).getBeanFactory().destroyBean(girl);
-        System.out.println(" > Sau khi Ioc Container destroy Girl");
+        // Lấy ra bean GirlService
+        GirlService girlService = context.getBean(GirlService.class);
+        // Lấy ra random một cô gái từ tầng service
+        Girl girl = girlService.getRandomGirl();
+        // In ra màn hình
+        System.out.println(girl);
 
 
 

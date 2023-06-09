@@ -4,14 +4,24 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Girl {
-    @PostConstruct
-    public void postContruct(){
-        System.out.println("\t>> Đối tượng Girl sau khi khởi tạo xong sẽ chạy hàm này");
+    private String name;
+
+    public Girl(String name) {
+        this.name = name;
     }
-    @PreDestroy
-    public void preDestroy(){
-        System.out.println("\t>> Đối tượng Girl trước khi bị destroy thì chạy hàm này");
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl(" + this.name + ")";
     }
 }
